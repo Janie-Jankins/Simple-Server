@@ -1,18 +1,18 @@
-const movies = {
+let movies = {
     theKarateKid: ['The Karate Kid','1984','PG','2h6m','7.3/10'],
     beautyAndTheBeast: ['Beauty and The Beast','2017','PG','2h9m','7.1/10'],
     greenLantern: ['Green Lantern','2011','PG-13','1h54m','5.5/10'],
     batmanBegins: ['Batman Begins','2005','PG-13','2h20m','8.2/10']
 }
 
-const series = {
+let series = {
     suits: ['Suits','2011-2019','TV-14','45m','8.4/10'],
     prisonBreak: ['Prison Break','2005-2017','TV-14','44m','8.3/10'],
     peakyBlinders: ['Peaky Blinders','2013-2022','TV-MA','1h','8.7/10'],
     breakingBad: ['Breaking Bad','2008-2013','TV-MA','45m','9.5/10']
 }
 
-const songs = {
+let songs = {
     headlines: ['Headlines','2015','Drake',['R&B/Soul','Hip-Hop/Rap']],
     loyal: ['Loyal','2013',['Chris Brown','Lil Wayne','Tyga'],'Dance pop'],
     adorn: ['Adorn','2012','Miguel','Classic soul'],
@@ -128,23 +128,29 @@ const server = http.createServer((req,res) => {
         })
         if(req.url === '/movies'){
             req.on('end',() => {
+                const value = JSON.parse(body);
+                movies = value;
                 res.statusCode = 200;
                 res.setHeader('Content-Type','application/json')
-                res.end(JSON.stringify({message: 'entry recieved and updated',data:body}))
+                res.end(JSON.stringify({message: 'entry recieved and updated',movies:movies}))
             })
             }
             else if(req.url === '/series'){
                 req.on('end',() => {
+                    const value = JSON.parse(body);
+                    series = value;
                     res.statusCode = 200;
                     res.setHeader('Content-Type','application/json')
-                    res.end(JSON.stringify({message: 'entry received and updated',data:body}))
+                    res.end(JSON.stringify({message: 'entry received and updated',series:series}))
                 })
             }
             else if(req.url === '/songs'){
                 req.on('end',() => {
+                    const value = JSON.parse(body);
+                    songs = value;
                     res.statusCode = 200;
                     res.setHeader('Content-Type','application/json')
-                    res.end(JSON.stringify({message: 'entry received and updated',data:body}))
+                    res.end(JSON.stringify({message: 'entry received and updated',songs:songs}))
                 })
             }
             else{
