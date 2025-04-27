@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mock Media API Documentation</title>
+</head>
+<body>
+    <h1>Mock Media API Documentation</h1>
+    <p>Manage movies, series, and songs via REST endpoints.</p>
+    
+    <h2>Endpoints</h2>
+    
+    <h3>Movies</h3>
+    <ul>
+        <li><strong>GET /movies</strong> - List all movies</li>
+        <li><strong>GET /movies/name</strong> - Get a movie by name(Capital Letter for first letter of words between spaces)</li>
+        <li><strong>POST /movies</strong> - Add a movie. Send JSON body:
+            <pre>{
+    "name": "string",
+    "year": "number",
+    "restriction": "string",
+    "hours": "string",
+    "rating": "string"
+}</pre>
+        </li>
+        <li><strong>PUT /movies/name</strong> - Update a movie. Send JSON body with fields to update. Send JSON body:
+            <pre>{
+    "year": "number",
+    "restriction": "string",
+    "hours": "string",
+    "rating": "string"
+}</pre></li>
+        <li><strong>DELETE /movies/name</strong> - Delete a movie</li>
+    </ul>
+
+    <h3>Series</h3>
+    <ul>
+        <li><strong>GET /series</strong> - List all series</li>
+        <li><strong>GET /series/name</strong> - Get a series by name(Capital Letter for first letter of words between spaces)</li>
+        <li><strong>POST /series</strong> - Add a series. Send JSON body:
+            <pre>{
+    "name": "string",
+    "year": "string",
+    "restriction": "string",
+    "hours": "string",
+    "rating": "string"
+}</pre>
+        </li>
+        <li><strong>PUT /series/name</strong> - Update a series. Send JSON body:
+            <pre>{
+    "year": "string",
+    "restriction": "string",
+    "hours": "string",
+    "rating": "string"
+}</pre></li>
+        <li><strong>DELETE /series/name</strong> - Delete a series</li>
+    </ul>
+
+    <h3>Songs</h3>
+    <ul>
+        <li><strong>GET /songs</strong> - List all songs</li>
+        <li><strong>GET /songs/name</strong> - Get a song by name(Capital Letter for first letter of words between spaces)</li>
+        <li><strong>POST /songs</strong> - Add a song. Send JSON body:
+            <pre>{
+    "name": "string",
+    "year": "string",
+    "artist": "string",
+    "genre": "string"
+}</pre>
+        </li>
+        <li><strong>PUT /songs/name</strong> - Update a song. Send JSON body:
+            <pre>{
+    "year": "string",
+    "artist": "string",
+    "genre": "string"
+}</pre></li>
+        <li><strong>DELETE /songs/name</strong> - Delete a song</li>
+    </ul>
+</body>
+</html>
